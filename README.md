@@ -13,13 +13,13 @@ Key steps: ingest documents -> split into chunks -> compute embeddings -> index 
 
 ```mermaid
 flowchart LR
-  A[PDF / Documents] -->|load| B[Document Loader]
+  A[PDF/Documents] -->|load| B[Document Loader]
   B --> C[Text Splitter]
   C --> D[Embeddings]
-  D --> E[Vector DB (FAISS / other)]
+  D --> E[Vector DB]
   E --> F[Retriever]
-  F --> G[RetrievalQA / LLM]
-  G --> H[Answer (with citations)]
+  F --> G[Retrieval + LLM]
+  G --> H[Answer with citations]
 ```
 
 ## Environment variables (`.env`)
