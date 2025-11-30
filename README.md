@@ -22,4 +22,31 @@ flowchart LR
   G --> H[Answer (with citations)]
 ```
 
+## Environment variables (`.env`)
+
+Create a `.env` file in the repository root to store secret keys and configuration used by notebooks or scripts. This file is already excluded by `.gitignore`.
+
+Minimal example (`.env`):
+
+```text
+OPENAI_API_KEY=sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+# Optional (if you use Hugging Face or other providers):
+# HUGGINGFACE_API_KEY=hf_xxx
+# OTHER_KEY=value
+```
+
+Load these variables in Python using `python-dotenv`:
+
+```python
+from dotenv import load_dotenv
+import os
+
+load_dotenv()  # reads .env from repo root
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+```
+
+Notes:
+- Keep `.env` out of version control and never commit secret keys.
+- If you change `.env` while a Jupyter kernel is running, restart the kernel to pick up changes.
+
 
